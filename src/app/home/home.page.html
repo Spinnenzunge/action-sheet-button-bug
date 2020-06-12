@@ -1,15 +1,23 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Action Sheet Bug
-    </ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>
+            Action Sheet Bug
+        </ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div class="ion-padding">
-    <ion-button expand="block" (click)="presentActionSheet()">
-      Present Action Sheet
-    </ion-button>
-  </div>
+    <ion-list>
+        <ion-item *ngFor="let entry of form">
+            <ion-icon slot="start" [name]="entry.icon"></ion-icon>
+            <ion-label>{{entry.val}}</ion-label>
+            <ion-checkbox slot="end" [(ngModel)]="entry.isChecked"></ion-checkbox>
+        </ion-item>
+    </ion-list>
+
+    <div class="ion-padding">
+        <ion-button expand="block" (click)="presentActionSheet()">
+            Present Action Sheet
+        </ion-button>
+    </div>
 </ion-content>
